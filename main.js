@@ -1,4 +1,4 @@
-import * as Msgs from './modules/msgs'
+import * as Msgs from './modules/msgs.js'
 
 let toDoTasks = document.getElementById("todo");
 let doneTasks = document.getElementById("done");
