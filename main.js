@@ -11,20 +11,13 @@ addTaskButton.addEventListener("click",addTask);
 function addTask(e){
     e.preventDefault();
     if(isTextBoxEmpty(inputBox1)){
-        // errorMasages.innerHTML = Msgs.showErrorMessage(errorMessage, errorMasages);
-        // document.getElementById('inputTask').onclick = Msgs.showErrorMessage(errorMessage, errorMasages);
-        // document.getElementById('inputTask').addEventListener('click', Msgs.showErrorMessage(errorMessage));
-        // errorMasages.innerHTML = (document.getElementById('addTask-btn').onclick = Msgs.showErrorMessage(errorMessage));
         if (typeof(addTaskButton) != "undefined" && addTaskButton != null) {
-            // errorMasages.innerHTML = addTaskButton.addEventListener('click', Msgs.showErrorMessage(errorMessage));
             addTaskButton.onclick = Msgs.showErrorMessage(errorMessage, errorMasages);
         }
 
     }else if(isTextBoxFilled(inputBox1)){
-        // errorMasages.innerHTML = (document.getElementById('addTask-btn').onclick = Msgs.removeErrorMessage());
         if (typeof(addTaskButton) != "undefined" && addTaskButton != null) {
-            // errorMasages.innerHTML = addTaskButton.addEventListener('click', Msgs.removeErrorMessage());
-            addTaskButton.onclick = Msgs.removeErrorMessage(errorMasages);
+            addTaskButton.onclick = Msgs.removeErrorMessage(errorMessage, errorMasages);
         }       
         let unCompletedTask = document.createElement("div");
         unCompletedTask.classList = "toComplete";
@@ -59,7 +52,7 @@ function addTask(e){
                 }
             } else if(isTextBoxFilled(inputBox2)){
                 if (typeof(editButton) != "undefined" && addTaskButton != null) {
-                    editButton.onclick = Msgs.removeErrorMessage(errorMasages);
+                    editButton.onclick = Msgs.removeErrorMessage(errorMessage, errorMasages);
                 }
             }
         });
@@ -107,18 +100,6 @@ function addTask(e){
     }
 }
 
-// function showErrorMessage(){
-//     if(errorMessage == "") {
-//         errorMessage += " Du har ingen uppgift att göra.<br> Lägg till en uppgift och låt den inte vara tom.";
-//         errorMasages.innerHTML = errorMessage;
-//     }
-// }
-
-// function removeErrorMessage(){
-//     errorMessage = "";
-//     errorMasages.innerHTML = errorMessage;
-// }
-
 function isTextBoxEmpty(input){
 
     return input.value.trim() == "";
@@ -127,23 +108,3 @@ function isTextBoxFilled(input){
 
     return input.value != "";
 }
-/*function generateErrorMessage(inputBox1,inputBox2){
-    let inputBox2 = document.getElementByClassName("inputBox2");
-    let errors = "";
-     if(isTextBoxEmpty(inputBox1)){
-        showErrorMessage();
-        errors +="Du har ingen uppgift att göra.<br> Lägg till en uppgift och låt den inte vara tom.";
-    } else if(isTextBoxFilled(inputBox1)){
-        removeErrorMessage();
-    }
-     if(isTextBoxEmpty(inputBox2)){
-        showErrorMessage();
-        errors +="Hur man slutför en tom uppgift.";
-    } else if(isTextBoxFilled(inputBox2)){
-        removeErrorMessage();
-    }
-    return errors;
-}*/
-
-
-

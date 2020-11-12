@@ -5,7 +5,7 @@ export function showErrorMessage(errorMessage, errorMasages){
   }
 }
 
-export function removeErrorMessage(errorMasages) {
+export function removeErrorMessage(errorMessage, errorMasages) {
   errorMessage = "";
   errorMasages.innerHTML = errorMessage;
 }
