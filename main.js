@@ -4,25 +4,27 @@ let toDoTasks = document.getElementById("todo");
 let doneTasks = document.getElementById("done");
 let inputBox1 = document.getElementById("inputTask");
 let addTaskButton = document.getElementById("addTask-btn");
-let errorMasages = document.getElementById("messages");
-let errorMessage = "";
+var errorMasages = document.getElementById("messages");
+var errorMessage = "";
 addTaskButton.addEventListener("click",addTask);
 
 function addTask(e){
     e.preventDefault();
     if(isTextBoxEmpty(inputBox1)){
-        // errorMasages.innerHTML = Msgs.showErrorMessage(errorMessage);
-        // document.getElementById('inputTask').onclick = Msgs.showErrorMessage(errorMessage);
+        // errorMasages.innerHTML = Msgs.showErrorMessage(errorMessage, errorMasages);
+        // document.getElementById('inputTask').onclick = Msgs.showErrorMessage(errorMessage, errorMasages);
         // document.getElementById('inputTask').addEventListener('click', Msgs.showErrorMessage(errorMessage));
         // errorMasages.innerHTML = (document.getElementById('addTask-btn').onclick = Msgs.showErrorMessage(errorMessage));
-        if (typeof addTaskButton != "undefined") {
-            errorMasages.innerHTML = addTaskButton.addEventListener('click', Msgs.showErrorMessage(errorMessage));
+        if (typeof(addTaskButton) != "undefined" && addTaskButton != null) {
+            // errorMasages.innerHTML = addTaskButton.addEventListener('click', Msgs.showErrorMessage(errorMessage));
+            addTaskButton.onclick = Msgs.showErrorMessage(errorMessage, errorMasages);
         }
 
     }else if(isTextBoxFilled(inputBox1)){
         // errorMasages.innerHTML = (document.getElementById('addTask-btn').onclick = Msgs.removeErrorMessage());
-        if (typeof addTaskButton != "undefined") {
-            errorMasages.innerHTML = addTaskButton.addEventListener('click', Msgs.removeErrorMessage());
+        if (typeof(addTaskButton) != "undefined" && addTaskButton != null) {
+            // errorMasages.innerHTML = addTaskButton.addEventListener('click', Msgs.removeErrorMessage());
+            addTaskButton.onclick = Msgs.removeErrorMessage(errorMasages);
         }       
         let unCompletedTask = document.createElement("div");
         unCompletedTask.classList = "toComplete";
@@ -52,12 +54,12 @@ function addTask(e){
             }
 
             if(isTextBoxEmpty(inputBox2)){
-                if (typeof editButton != "undefined") {
-                    errorMessage = addTaskButton.addEventListener('click', Msgs.showErrorMessage(errorMessage));
+                if (typeof(editButton) != "undefined" && addTaskButton != null) {
+                    editButton.onclick = Msgs.showErrorMessage(errorMessage, errorMasages);
                 }
             } else if(isTextBoxFilled(inputBox2)){
-                if (typeof editButton != "undefined") {
-                    errorMessage = addTaskButton.addEventListener('click', Msgs.removeErrorMessage());
+                if (typeof(editButton) != "undefined" && addTaskButton != null) {
+                    editButton.onclick = Msgs.removeErrorMessage(errorMasages);
                 }
             }
         });
@@ -69,15 +71,15 @@ function addTask(e){
             
             doneButton.addEventListener("click",function(){
                 if(isTextBoxEmpty(inputBox2)){
-                    if (typeof editButton != "undefined") {
-                        errorMessage = addTaskButton.addEventListener('click', Msgs.showErrorMessage(errorMessage));
+                    if (typeof(editButton) != "undefined" && addTaskButton != null) {
+                        editButton.onclick = Msgs.showErrorMessage(errorMessage, errorMasages);
                     }
                     inputBox2.disabled = true;
                     editButton.innerText = "Ändra";
 
                 } else if(isTextBoxFilled(inputBox2)){
-                    if (typeof editButton != "undefined") {
-                        errorMessage = addTaskButton.addEventListener('click', Msgs.removeErrorMessage());
+                    if (typeof(editButton) != "undefined" && addTaskButton != null) {
+                        editButton.onclick = Msgs.removeErrorMessage()
                     }                    
                 
                 let completedTask = document.createElement("div");

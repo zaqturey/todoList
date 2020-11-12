@@ -1,9 +1,11 @@
-export function showErrorMessage(errMsg){
+export function showErrorMessage(errorMessage, errorMasages){
   if(errMsg == "") {
-      return errMsg += " Du har ingen uppgift att göra.<br> Lägg till en uppgift och låt den inte vara tom.";
+    errorMessage += " Du har ingen uppgift att göra.<br> Lägg till en uppgift och låt den inte vara tom.";
+      errorMasages.innerHTML = errorMessage;
   }
 }
 
-export function removeErrorMessage() {
-  return errMsg = "";
+export function removeErrorMessage(errorMasages) {
+  errorMessage = "";
+  errorMasages.innerHTML = errorMessage;
 }
