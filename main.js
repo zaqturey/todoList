@@ -16,13 +16,13 @@ function addTask(e){
         // document.getElementById('inputTask').addEventListener('click', Msgs.showErrorMessage(errorMessage));
         // errorMasages.innerHTML = (document.getElementById('addTask-btn').onclick = Msgs.showErrorMessage(errorMessage));
         if (typeof addTaskButton != "undefined") {
-            errorMasages.innerHTML = addTaskButton.onload('click', Msgs.showErrorMessage(errorMessage));
+            errorMasages.innerHTML = addTaskButton.addEventListener('click', Msgs.showErrorMessage(errorMessage));
         }
 
     }else if(isTextBoxFilled(inputBox1)){
         // errorMasages.innerHTML = (document.getElementById('addTask-btn').onclick = Msgs.removeErrorMessage());
         if (typeof addTaskButton != "undefined") {
-            errorMasages.innerHTML = addTaskButton.onload('click', Msgs.removeErrorMessage());
+            errorMasages.innerHTML = addTaskButton.addEventListener('click', Msgs.removeErrorMessage());
         }       
         let unCompletedTask = document.createElement("div");
         unCompletedTask.classList = "toComplete";
@@ -52,9 +52,13 @@ function addTask(e){
             }
 
             if(isTextBoxEmpty(inputBox2)){
-                errorMessage = addTaskButton.addEventListener('click', Msgs.showErrorMessage(errorMessage));
+                if (typeof editButton != "undefined") {
+                    errorMessage = addTaskButton.addEventListener('click', Msgs.showErrorMessage(errorMessage));
+                }
             } else if(isTextBoxFilled(inputBox2)){
-                errorMessage = addTaskButton.addEventListener('click', Msgs.removeErrorMessage());
+                if (typeof editButton != "undefined") {
+                    errorMessage = addTaskButton.addEventListener('click', Msgs.removeErrorMessage());
+                }
             }
         });
     
@@ -65,12 +69,16 @@ function addTask(e){
             
             doneButton.addEventListener("click",function(){
                 if(isTextBoxEmpty(inputBox2)){
-                    Msgs.showErrorMessage(errorMessage);
+                    if (typeof editButton != "undefined") {
+                        errorMessage = addTaskButton.addEventListener('click', Msgs.showErrorMessage(errorMessage));
+                    }
                     inputBox2.disabled = true;
                     editButton.innerText = "Ändra";
 
                 } else if(isTextBoxFilled(inputBox2)){
-                    document.getElementById('addTask-btn').onload('click', Msgs.removeErrorMessage());
+                    if (typeof editButton != "undefined") {
+                        errorMessage = addTaskButton.addEventListener('click', Msgs.removeErrorMessage());
+                    }                    
                 
                 let completedTask = document.createElement("div");
                 completedTask.classList="completedTasks";
