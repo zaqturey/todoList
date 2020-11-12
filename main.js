@@ -15,9 +15,9 @@ function addTask(e){
         // document.getElementById('inputTask').onclick = Msgs.showErrorMessage(errorMessage);
         // document.getElementById('inputTask').addEventListener('click', Msgs.showErrorMessage(errorMessage));
         // errorMasages.innerHTML = (document.getElementById('addTask-btn').onclick = Msgs.showErrorMessage(errorMessage));
-        // if (typeof addTaskButton != "undefined") {
-        //     errorMasages.innerHTML = addTaskButton.addEventListener('click', Msgs.showErrorMessage(errorMessage));
-        // }
+        if (typeof addTaskButton != "undefined") {
+            errorMasages.innerHTML = addTaskButton.addEventListener('click', Msgs.showErrorMessage(errorMessage));
+        }
 
     }else if(isTextBoxFilled(inputBox1)){
         // errorMasages.innerHTML = (document.getElementById('addTask-btn').onclick = Msgs.removeErrorMessage());
