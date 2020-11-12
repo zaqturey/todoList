@@ -1,5 +1,5 @@
 export function showErrorMessage(errorMessage, errorMasages){
-  if(errMsg == "") {
+  if(errorMessage == "") {
     errorMessage += " Du har ingen uppgift att göra.<br> Lägg till en uppgift och låt den inte vara tom.";
       errorMasages.innerHTML = errorMessage;
   }
